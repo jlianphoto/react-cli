@@ -1,12 +1,12 @@
 import React from 'react';
-import './Hello.css'
+import './Login.css'
 
-export default class Hello extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            msg: 'Hello World!',
-            info: 'Hope you can enjoy your time with React.'
+            msg: 'Login!',
+            info: 'Login Login Login Login Login Login '
         };
     }
     render() {
@@ -19,5 +19,4 @@ export default class Hello extends React.Component {
     }
 }
 
-
-module.exports = Hello;
+module.exports = Login;

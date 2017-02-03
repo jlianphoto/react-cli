@@ -1,7 +1,7 @@
 import React from 'react';
-import './Hello.css'
+import './index.css'
 
-export default class Hello extends React.Component {
+class Index extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,5 +19,4 @@ export default class Hello extends React.Component {
     }
 }
 
-
-module.exports = Hello;
+module.exports = Index;

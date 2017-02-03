@@ -5,8 +5,10 @@ import { Router,Route,browserHistory,hashHistory,IndexRoute} from 'react-router'
 
 
 /*
-* 路由
+* 引用组件
 */ 
+
+
 import routes from './router.config'
 
 
