@@ -1,17 +1,16 @@
 # react-cli
 
-> A SPA boilerplate with React.
+> A SPA boilerplate with React , this cli is good for a large project because of the async router.
 
 
 ## What's included
  - **React** 15.3.1
+ - **React-router** 
  - **JSX**
  - **ES6**
  - **Webpack**
- - **Express** the dev-server.
  - **Hot-Reload**
- - **Proxy** I think most of the boilerplates drop this important feature.
- - **Global-Variable**
+ - **Proxy** You can set up an agent to facilitate debugging .
 
 ## Usage
 
@@ -30,7 +29,6 @@ npm run build
 
 ## TODO
 
-- [ ] testing
-- [ ] eslint
 - [ ] multiple css pre-processors
+- [x] router config
 - [x] cli
