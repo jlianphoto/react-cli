@@ -1,8 +1,7 @@
-# react-webpack-boilerplate
+# react-cli
 
-> A SPA boilerplate with React, built with love.
+> A SPA boilerplate with React.
 
-I think a fantastic boilerplate is good for us to learn a library such like **Vue** and **React**. Since Vue has [vue-cli](https://github.com/vuejs-templates/webpack), and in my personal opinion, the so-called full-featured boilerplates with React are mostly suck. So I decided to build one, referenced by vue-cli. Hope it can help you learn React with no extra burden. If you are familiar with vue-cli, this boilerplate may be the best for you.
 
 ## What's included
  - **React** 15.3.1
@@ -38,5 +37,5 @@ You can check the [doc](http://vuejs-templates.github.io/webpack/env.html)
 
 - [ ] testing
 - [ ] eslint
-- [x] multiple css pre-processors
-- [ ] cli
+- [ ] multiple css pre-processors
+- [x] cli
