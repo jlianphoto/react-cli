@@ -28,7 +28,7 @@ npm run build
 
 
 ## TODO
-
+- [x] Responsive layout
 - [x] multiple css pre-processors : Sass
 - [x] router config
 - [x] cli
