@@ -29,6 +29,6 @@ npm run build
 
 ## TODO
 
-- [ ] multiple css pre-processors
+- [x] multiple css pre-processors : Sass
 - [x] router config
 - [x] cli
