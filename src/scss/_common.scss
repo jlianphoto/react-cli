@@ -28,8 +28,6 @@ $font-size-base:75;
 	-webkit-box-flex:$per;
 	-webkit-flex:$per;
 	-moz-flex:$per;
-	-ms-flex:$per;
-	-o-flex:$per;
 	flex:$per;
 	//下面3个属性是为了兼容安卓4.3
 	display:block;
@@ -56,13 +54,9 @@ $font-size-base:75;
 	display:box;
 	-webkit-box-pack:center;
 	-moz-box-pack:center;
-	-ms-box-pack:center;
-	-o-box-pack:center;
 	box-pack:center;
 	-webkit-box-align:center;
 	-moz-box-align:center;
-	-ms-box-align:center;
-	-o-box-align:center;
 	box-align:center;
 }
 //keyframes
@@ -111,12 +105,4 @@ $font-size-base:75;
 	-moz-transform:$transition;
 	-ms-transform:$transition;
 	-o-transform:$transition;
-}
-
-
-//处理不同分辨率(dpr不同)字体统一大小的问题
-@mixin sameFontSize($size){
-	& [data-dpr="2"]  {
-        @return $size * 1px;
-    }
 }
