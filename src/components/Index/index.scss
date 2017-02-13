@@ -2,7 +2,7 @@
 
 #Hello .msg {
     color: #61dafb;
-    @include sameFontSize(100);
+    font-size: torem(100);
 }
 #Hello .info {
     color: #61dafb;
