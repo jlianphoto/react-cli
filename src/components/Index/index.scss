@@ -14,3 +14,15 @@ a {
 a:hover{
 	text-decoration: none;
 }
+
+.btn{
+	display: block;
+	border:0;
+	height: torem(70);
+	line-height: torem(70);
+	width: 100%;
+	color: #fff;
+	font-size: 40px;
+	background:#61dafb; 
+	margin-top: torem(20);
+}
