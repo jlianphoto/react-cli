@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 import './index.scss'
 
 class Index extends React.Component {
@@ -6,14 +7,16 @@ class Index extends React.Component {
         super(props);
         this.state = {
             msg: 'Hello World!',
-            info: 'Hope you can enjoy your time with React.'
         };
     }
     render() {
         return (
             <div id="Hello">
                 <div className="msg">{this.state.msg}</div>
-                <p className="info">{this.state.info}</p>
+                <ul>
+                    <li><Link to="/login">login</Link></li>
+                    <li><Link to="/register">register</Link></li>
+                </ul>
             </div>
         );
     }
