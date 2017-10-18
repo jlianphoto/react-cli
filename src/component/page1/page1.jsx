@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import baseComponent from '../common/baseCompent'
 import { Link } from 'react-router-dom';
 
-class App extends Component {
+class App extends baseComponent {
 
   constructor(props) {
     super(props);
