@@ -1,5 +1,7 @@
 //路由异步加载
 import React, { Component } from 'react';
+import Progress from '../component/common/Progress'
+
 
 class Bundle extends Component {
 	constructor (...args){
@@ -10,6 +12,7 @@ class Bundle extends Component {
 	}
 	componentWillMount() {
 		this.load(this.props)
+		Progress.start();
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -27,6 +30,7 @@ class Bundle extends Component {
 				// handle both es imports and cjs
 				mod: mod ? mod.default : mod
 			})
+			Progress.end();
 		}).catch(err => console.log('Failed to load module', err));
 	}
 
