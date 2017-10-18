@@ -1,3 +1,4 @@
+//路由异步加载
 import React, { Component } from 'react';
 
 class Bundle extends Component {
