@@ -20,6 +20,10 @@ const routes = [
 	{ path: '/page2/:username',
 		exact: false,
 		component: (props) => getComponent(props, () => import('../component/page2/page2'))
+	},
+	{ path: '/page3',
+		exact: false,
+		component: (props) => getComponent(props, () => import('../component/page3/page3'))
 	}
 ];
 

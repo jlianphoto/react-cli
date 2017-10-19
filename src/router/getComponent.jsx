@@ -1,6 +1,6 @@
 //路由异步加载
 import React, { Component } from 'react';
-import Progress from '../component/common/Progress'
+import Progress from '../component/common/Progress/index'
 
 
 class Bundle extends Component {
@@ -30,7 +30,8 @@ class Bundle extends Component {
 				// handle both es imports and cjs
 				mod: mod ? mod.default : mod
 			})
-			Progress.end();
+			setTimeout(_=>{Progress.end();},2000)
+			
 		}).catch(err => console.log('Failed to load module', err));
 	}
 

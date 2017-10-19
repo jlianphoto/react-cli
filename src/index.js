@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import route from './router'; //路由配置
 import store from './store';
 // import registerServiceWorker from './registerServiceWorker';]
-
+import 'weui';
+import 'react-weui/build/packages/react-weui.css';
 
 store.subscribe(function () {
     // console.log(store.getState());
