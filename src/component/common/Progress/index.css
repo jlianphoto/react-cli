@@ -1,0 +1,10 @@
+.weui-progress-bar{
+	height: 3px;
+	width: 0%;
+	background: #09bb07;
+	position: fixed;
+	top:0;
+	left: 0;
+	opacity:1;
+	transition: all 0.8s cubic-bezier(0.31, 0.84, 0.4, 1);
+}
