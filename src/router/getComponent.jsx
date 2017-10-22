@@ -6,6 +6,7 @@ import Progress from '../component/common/Progress/index'
 class Bundle extends Component {
 	constructor (...args){
 		super(...args);
+
 		this.state = {
 			mod: null
 		};
@@ -30,6 +31,9 @@ class Bundle extends Component {
 				// handle both es imports and cjs
 				mod: mod ? mod.default : mod
 			})
+			console.log(props)
+
+			document.title = props.title || 'react-demo-by-jlian';
 			setTimeout(_=>{Progress.end();},2000)
 			
 		}).catch(err => console.log('Failed to load module', err));
@@ -42,9 +46,9 @@ class Bundle extends Component {
 }
 
 
-export default function getComponent(props, ComponentFunc) {
+export default function getComponent(props, ComponentFunc , title) {
 	return (
-		<Bundle load={ComponentFunc} {...props}>
+		<Bundle title={title} load={ComponentFunc} {...props}>
 			{(Module, props) => <Module {...props}/>}
 		</Bundle>
 	)
