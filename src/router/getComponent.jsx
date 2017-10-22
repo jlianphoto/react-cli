@@ -31,7 +31,6 @@ class Bundle extends Component {
 				// handle both es imports and cjs
 				mod: mod ? mod.default : mod
 			})
-			console.log(props)
 
 			document.title = props.title || 'react-demo-by-jlian';
 			setTimeout(_=>{Progress.end();},2000)

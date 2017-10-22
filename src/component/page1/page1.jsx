@@ -13,6 +13,10 @@ class App extends baseComponent {
     }
   }
 
+  componentWillMount() {
+    document.title = 'page1'
+  }
+
 
 
   render() {
