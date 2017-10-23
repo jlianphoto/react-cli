@@ -21,9 +21,9 @@ const routes = [
 		exact: false,
 		component: (props) => getComponent(props, () => import('../component/page2/page2') , 'page2')
 	},
-	{ path: '/page3',
+	{ path: '/paymentCenter',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/page3/page3') , 'page3')
+		component: (props) => getComponent(props, () => import('../component/paymentCenter/paymentCenter') , '收银台')
 	}
 ];
 
@@ -39,7 +39,6 @@ const routes = [
 const RouteConfig = (
     <BrowserRouter >
 	    <Switch>
-	      {/*<Route path="/" exact component={IndexList} />*/}
 		    {routes.map((route, index) => (
 			    <Route
 				    key={index}

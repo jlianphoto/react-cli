@@ -1,11 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import './index.css';
 import { Provider } from 'react-redux';
 import route from './router'; //路由配置
 import store from './store';
 // import registerServiceWorker from './registerServiceWorker';]
+
 import 'weui';
+import './style/base.css'
 import 'react-weui/build/packages/react-weui.css';
 
 store.subscribe(function () {

@@ -14,6 +14,13 @@ class App extends baseComponent {
 	    }
 	  }
 
+
+	  componentDidMount(){
+	  	this.axios.get('/openapi/api', {params:{key:'4178fc14b99ae2e286dd680b0a8d9fb7' , info:'您好'}}).then(req=>{
+	  		console.log(req)
+	  	})
+	  }
+
 	 render() {
 	    return (
 	      <div className="App">
