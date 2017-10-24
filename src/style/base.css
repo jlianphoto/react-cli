@@ -1,3 +1,34 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	font-size: 14px;
+}
+
+h4,h5,h6,h7,h8{
+	font-weight: normal;
+}
+
 .page__bd_spacing{
 	padding: 0 15px;
+}
+
+.input-control{
+	width:100%;
+	height: 40px;
+	padding: 8px;
+	border: 1px solid #BDBDBD;
+	border-radius: 2px;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.input-control.dropdown{
+	position: relative;
+}
+.input-control.dropdown::after{
+	content: '';
+	display: inline-block;
+	width: 10px;
+	height: 10px;
 }

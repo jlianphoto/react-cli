@@ -1,0 +1,23 @@
+.apply-store{
+	background: #f3f3f3;
+}
+
+.apply-store section{
+	margin-bottom: 10px;
+}
+
+.apply-store h4{
+	font-size: 14px;
+	color:#757575 ;
+	line-height: 40px;
+	padding: 0 10px;
+}
+
+.apply-store .input-group{
+	background: #fff;
+	padding: 10px;
+}
+
+.apply-store .input-group p{
+	margin-bottom: 6px;
+}
