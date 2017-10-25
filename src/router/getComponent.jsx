@@ -32,8 +32,8 @@ class Bundle extends Component {
 				mod: mod ? mod.default : mod
 			})
 
-			document.title = props.title || 'react-demo-by-jlian';
-			setTimeout(_=>{Progress.end();},2000)
+			document.title = props.$route.title || 'react-demo-by-jlian';
+			Progress.end();
 			
 		}).catch(err => console.log('Failed to load module', err));
 	}
@@ -45,9 +45,9 @@ class Bundle extends Component {
 }
 
 
-export default function getComponent(props, ComponentFunc , title) {
+export default function getComponent(props, ComponentFunc , meta) {
 	return (
-		<Bundle title={title} load={ComponentFunc} {...props}>
+		<Bundle $route={meta} load={ComponentFunc} {...props}>
 			{(Module, props) => <Module {...props}/>}
 		</Bundle>
 	)

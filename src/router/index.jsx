@@ -19,15 +19,15 @@ const routes = [
 	},
 	{ path: '/page2/:username',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/page2/page2') , 'page2')
+		component: (props) => getComponent(props, () => import('../component/page2/page2') , {title:'page2'})
 	},
 	{ path: '/apply',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/apply/apply') , '申请开店')
+		component: (props) => getComponent(props, () => import('../component/apply/apply') , {title:'申请开店'})
 	},
 	{ path: '/paymentCenter',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/paymentCenter/paymentCenter') , '收银台')
+		component: (props) => getComponent(props, () => import('../component/paymentCenter/paymentCenter') , {title:'收银台'})
 	}
 ];
 

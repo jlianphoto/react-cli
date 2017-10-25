@@ -6,8 +6,8 @@ import store from './store';
 // import registerServiceWorker from './registerServiceWorker';]
 
 import 'weui';
-import './style/base.css'
-import 'react-weui/build/packages/react-weui.css';
+import './style/base.scss'
+// import 'react-weui/build/packages/react-weui.css';
 
 store.subscribe(function () {
     // console.log(store.getState());

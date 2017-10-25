@@ -1,0 +1,34 @@
+.apply-store{
+	background: #f3f3f3;
+
+	section{
+		margin-bottom: 10px;
+	}
+
+	h4{
+		font-size: 14px;
+		color:#757575 ;
+		line-height: 40px;
+		padding: 0 10px;
+	}
+
+	.input-group{
+		background: #fff;
+		padding: 10px;
+
+		p{
+			margin-bottom: 6px;
+		}
+		p.required:after{
+			content: '*';
+			color: #EE322D ;
+			font-size: 18px;
+			position: relative;
+			left: 4px;
+			top:5px;
+
+
+		}
+	}
+
+}

@@ -25,7 +25,7 @@ class App extends baseComponent {
         <Link to="/">page1</Link>
         <Link to="/page2/www">page2</Link>
         <Link to="/page3">page3</Link>
-        <p>{this.state.test}</p>
+        <Link to="/apply">apply</Link>
       </div>
     );
   }
