@@ -2,11 +2,12 @@ import React from 'react';
 import baseComponent from '../common/baseCompent'
 import cnCity from './cnCity'
 
+import {Form , Input, Select ,FieldItem} from '../common/Form'
+
 import {
 	CityPicker,
 	Picker,
-	Button,
-	ButtonArea
+	Button
 } from 'react-weui';
 
 import './style.scss';
@@ -20,31 +21,35 @@ class App extends baseComponent {
 			city_show:false,
 			type_show:false,
 
-			city_value:'',
-			type_value:'',
+			cityValue:'',
+			typeValue:'',
+			hostName : ''
 
-			type_group:[
-	            {
-	                items: [
-	                    {
-	                        label: 'Item1'
-	                    },
-	                    {
-	                        label: 'Item2 (Disabled)',
-	                    },
-	                    {
-	                        label: 'Item3'
-	                    },
-	                    {
-	                        label: 'Item4'
-	                    },
-	                    {
-	                        label: 'Item5'
-	                    }
-	                ]
-	            }
-	        ]
 	    }
+
+
+	    this.type_group = [
+				            {
+				                items: [
+				                    {
+				                        label: 'Item1'
+				                    },
+				                    {
+				                        label: 'Item2 (Disabled)',
+				                    },
+				                    {
+				                        label: 'Item3'
+				                    },
+				                    {
+				                        label: 'Item4'
+				                    },
+				                    {
+				                        label: 'Item5'
+				                    }
+				                ]
+				            }
+				        ]
+
 	  }
 
 	componentDidMount() {
@@ -64,12 +69,30 @@ class App extends baseComponent {
 	typeChangeHandler = selected=>{
 		let value = '';
         selected.forEach( (s, i)=> {
-            value = this.state.type_group[i]['items'][s].label
+            value = this.type_group[i]['items'][s].label
         })
         this.setState({
-            type_value: value,
+            typeValue: value,
             type_show: false
         })
+	}
+
+	handleChange = (event)=>{
+		const target = event.target;
+		const name = target.name,
+			value = target.type === 'checkbox' ? target.checked : target.value;
+
+
+		this.setState({[name] : value});
+	}
+
+
+	sumbit = e=>{
+		e.preventDefault();
+		console.log(this.state);
+		this.refs.form.validate(valid=>{
+			console.log(valid)
+		})
 	}
 
 
@@ -78,62 +101,78 @@ class App extends baseComponent {
 	render() {
 	    return (
 			<div className="apply-store">
-
-				<section>
-					<h4>门店基本信息</h4>
-					<div className="input-group">
-						<p className="required">店主名</p>
-						<input className="input-control" placeholder="例如：肯德基餐厅" type="text"/>
-						<p>分店名称</p>
-						<input className="input-control" placeholder="例如：广州分店" type="text"/>
-					</div>
-				</section>
-				<section>
-					<div className="input-group">
-						<p className="required">所在省市区</p>
-						<div className="input-control dropdown" onClick={this.showCityPicker}>
-							<input type="text" placeholder="省 / 市 / 区" value={this.state.city_value}/>
-							<CityPicker
-								data={cnCity}
-								show={this.state.city_show}
-								onCancel={e=>this.setState({city_show: false})}
-								onChange={text=>this.setState({city_value: text, city_show: false})}
-							></CityPicker>
+				<Form ref="form">
+					<section>
+						<h4>门店基本信息</h4>
+						<div className="input-group">
+							<FieldItem label="店主名" rules={{required:true , pattern:/^1$/ , validator:(val)=>{console.log(val)}}}>
+								<Input placeholder="例如：肯德基餐厅" name="hostName" onChange={this.handleChange}></Input>
+							</FieldItem>
+							<FieldItem label="分店名称">
+								<Input placeholder="例如：广州分店"></Input>
+							</FieldItem>
 						</div>
-						<p>门店地址</p>
-						<input className="input-control" placeholder="例如：广州分店" type="text"/>
-						<p className="required">GPS坐标</p>
-						<input className="input-control" type="text" placeholder="获取坐标"/>
-					</div>
-				</section>
+					</section>
+					<section>
+						<div className="input-group">
+							<FieldItem label="所在省市区" rules={{required:true , pattern:/^1$/ , validator:(val)=>{console.log(val)}}}>
+								<Select onClick={this.showCityPicker}  placeholder="省 / 市 / 区" value={this.state.cityValue}></Select>
+								<CityPicker
+									data={cnCity}
+									show={this.state.city_show}
+									onCancel={e=>this.setState({city_show: false})}
+									onChange={text=>this.setState({cityValue: text, city_show: false})}
+								></CityPicker>
+							</FieldItem>
 
-				<section>
-					<div className="input-group">
-						<p className="required">所属类目</p>
-						<div className="input-control dropdown" onClick={this.showTypePicker}>
-							<input type="text" placeholder="请选择类目" value={this.state.type_value}/>
-							<Picker 
-								groups={this.state.type_group}
-								show={this.state.type_show}
-								onCancel={e=>this.setState({type_show: false})}
-								onChange={this.typeChangeHandler}
-								lang={{leftBtn:'取消' , rightBtn:'确定'}}
-								></Picker>
+							<FieldItem label="门店地址">
+								<Input placeholder="例如：广州分店"></Input>
+							</FieldItem>
+
+							<FieldItem label="GPS坐标" rules={{required:true}}>
+								<Input placeholder="获取坐标"></Input>
+							</FieldItem>
 
 						</div>
-						<p className="required">开店人名称</p>
-						<input className="input-control" placeholder="请输入开店人名称" type="text"/>
-						<p className="required">联系人手机号</p>
-						<input className="input-control" type="number" placeholder="请输入手机号"/>
-						<p className="required">门店电话</p>
-						<input className="input-control" type="number" placeholder="请输入门店电话"/>
-						<Button>确定</Button>
+					</section>
 
-					</div>
+					<section>
+						<div className="input-group">
+							<FieldItem label="所属类目" rules={{required:true}}>
+								<Select onClick={this.showTypePicker}  placeholder="请选择类目" value={this.state.typeValue}></Select>
+								<Picker 
+									groups={this.type_group}
+									show={this.state.type_show}
+									onCancel={e=>this.setState({type_show: false})}
+									onChange={this.typeChangeHandler}
+									lang={{leftBtn:'取消' , rightBtn:'确定'}}
+									></Picker>
+							</FieldItem>
 
-						
-				
-				</section>
+
+							<FieldItem label="所属类目" rules={{required:true , pattern:/^1$/ , validator:(val)=>{console.log(val)}}}>
+								<Input placeholder="请输入开店人名称"></Input>
+							</FieldItem>
+
+							<FieldItem label="开店人名称" rules={{required:true}}>
+								<Input placeholder="请输入开店人名称"></Input>
+							</FieldItem>
+
+							<FieldItem label="联系人手机号" rules={{required:true}}>
+								<Input placeholder="请输入手机号" type={'number'}></Input>
+							</FieldItem>
+
+							<FieldItem label="门店电话" rules={{required:true}}>
+								<Input placeholder="请输入门店电话" type={'number'}></Input>
+							</FieldItem>
+
+
+							<Button onClick={this.sumbit}>确定</Button>
+
+						</div>
+
+					</section>
+				</Form>
 
 
 			</div>
