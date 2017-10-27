@@ -13,7 +13,6 @@ class App extends baseComponent {
 
 	constructor(props) {
 	    super(props);
-	    console.log(this)
 
 	    this.children = [];
 	    

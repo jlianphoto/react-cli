@@ -54,3 +54,12 @@ h4,h5,h6,h7,h8{
 		top: 14px;
 	}
 }
+
+.input-error {
+	.input-control{
+		border-color: #e64340;
+	}
+	p{
+		color: #e64340;
+	}
+}
