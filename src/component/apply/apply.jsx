@@ -1,5 +1,7 @@
-import React from 'react';
+import React from 'react'
+import classNames from 'classnames'
 import baseComponent from '../common/baseCompent'
+import Map from './map'
 import cnCity from './cnCity'
 
 import {Form , Input, Select ,FieldItem} from '../common/Form'
@@ -23,6 +25,7 @@ class App extends baseComponent {
 	    this.state = {
 	    	city_show:false,
 			type_show:false,
+			map_show : false,
 			showWarn:false,
 			topTipMsg:'',
 
@@ -185,7 +188,7 @@ class App extends baseComponent {
 		for(let k in forms){
 			if (forms[k].rule) {
 				let value = forms[k].value;
-				if (value == '' || /^\s+$/.test(value)) {
+				if (value === '' || /^\s+$/.test(value)) {
 					this.showError(k);
 					this.errorMessage.push(forms[k].rule.msg);
 					valid = false;
@@ -201,6 +204,7 @@ class App extends baseComponent {
 
 	sumbit = e=>{
 		e.preventDefault();
+		this.setState({show:!this.state.show});
 
 		let valid = this.validate(this.state.form);
 
@@ -225,8 +229,18 @@ class App extends baseComponent {
 
 	}
 
-	forward = path=>{
-		this.props.history.push(path)
+	getAddress = rs=>{
+		console.log(rs)
+		let {form} = this.state;
+		form.gps.value = rs.point.lat + ","+ rs.point.lng;
+		// // from.gps.value = 
+
+		this.setState({
+			map_show : false,
+			form : form
+		})
+
+		console.log(this.state.form)
 	}
 
 
@@ -265,7 +279,7 @@ class App extends baseComponent {
 							</FieldItem>
 
 							<FieldItem label="GPS坐标" required error={this.state.form.gps.error}>
-								<Input name="gps" placeholder="获取坐标" onChange={this.handleChange} readOnly onClick={()=>{this.forward('./page1')}}></Input>
+								<Input name="gps" placeholder="获取坐标" value={this.state.form.gps.value} onChange={this.handleChange} readOnly onClick={()=>{this.setState({map_show:true})}}></Input>
 							</FieldItem>
 
 						</div>
@@ -304,7 +318,12 @@ class App extends baseComponent {
 					</section>
 				</Form>
 
-
+				<div className={classNames('wrapper-cover' ,{'show' : this.state.map_show})}>
+					<Map 
+					closeMap={()=>{this.setState({map_show:false})}}
+					getAddress={this.getAddress}
+					></Map>
+				</div> 
 			</div>
 	    );
 	}

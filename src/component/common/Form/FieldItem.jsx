@@ -1,8 +1,7 @@
-import React , {classNames} from 'react';
+import React from 'react';
 import baseComponent from '../baseCompent'
 import PropTypes from 'prop-types';
 
-console.log(classNames)
 
 class App extends baseComponent {
 

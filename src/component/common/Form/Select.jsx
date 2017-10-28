@@ -1,6 +1,5 @@
 import React from 'react';
 import baseComponent from '../baseCompent'
-import PropTypes from 'prop-types';
 
 
 class App extends baseComponent {
