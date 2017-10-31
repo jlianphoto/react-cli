@@ -17,17 +17,21 @@ const routes = [
 		exact: true,
 		component: IndexList
 	},
-	{ path: '/page2/:username',
+	{ path: '/success',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/page2/page2') , {title:'page2'})
+		component: (props) => getComponent(props, () => import('../component/success') , {title:'申请成功'})
 	},
 	{ path: '/apply',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/apply/apply') , {title:'申请开店'})
+		component: (props) => getComponent(props, () => import('../component/apply') , {title:'申请开店'})
 	},
 	{ path: '/paymentCenter',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/paymentCenter/paymentCenter') , {title:'收银台'})
+		component: (props) => getComponent(props, () => import('../component/paymentCenter') , {title:'收银台'})
+	},
+	{ path: '/aaa',
+		exact: false,
+		component: (props) => getComponent(props, () => import('../component/404') , {title:'test'})
 	}
 ];
 

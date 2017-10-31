@@ -6,14 +6,6 @@ import {
 } from 'react-weui';
 
 
-// import {
-// 	CityPicker,
-// 	Picker,
-// 	Button,
-// 	Toptips
-// } from 'react-weui';
-
-
 class App extends baseComponent {
 
 	constructor(props) {
@@ -23,49 +15,41 @@ class App extends baseComponent {
 
 	    this.state = {
 	    	location : '',
-	    	address:null
+	    	address:null,
 	    }
 	}
 
-	componentDidMount(){
-		if (!window.BMap) {
-			window.initBmap = this.initMap;
-			window.onload = this.asyncMap();
-		}else{
-			this.initMap();
-		}
-
-	}
-
-
+	//create the map
 	asyncMap(){
-
 		let script = document.createElement('script');
 		script.type="text/javascript";
-		script.src = "http://api.map.baidu.com/api?v=2.0&ak=ibj9ZONdVW7sHQWsZ0pXB6r2piUaH1eq&callback=initBmap";
+		script.src = "http://api.map.baidu.com/api?v=2.0&ak=ibj9ZONdVW7sHQWsZ0pXB6r2piUaH1eq&callback=initMapFirst";
 
 		document.body.appendChild(script);
 	}
 
-	initMap = ()=>{
+	//initialize map
+	initMap = (address , city)=>{
 		const BMap = window.BMap;
-
+		console.log(address , city)
 		this.Bmap = new BMap.Map("allmap");
 		this.Bmap.centerAndZoom(new BMap.Point(116.404, 39.915), 16);
 
-		let geolocation = new BMap.Geolocation();
 		this.geoc = new BMap.Geocoder();
 
-		let self = this;
-		//定位
-		geolocation.getCurrentPosition(function(r){
-			if(this.getStatus() === 0){
-				self.Bmap.panTo(r.point);
-				self.setPoint(r.point);
-			}else {
-				alert('无法定位到您的当前位置，导航失败，请手动输入您的当前位置');
+		//解析地址
+		let compileAddress = new BMap.Geocoder();
+		console.log(address , city)
+		compileAddress.getPoint(address , point=>{
+			console.log(point)
+			if (point) {
+				console.log(point ,11)
+				this.Bmap.centerAndZoom(point, 16);
+				this.setPoint(point)
+			}else{
+				this.props.toast('无法找到位置 , 请重新输入地址');
 			}
-		},{enableHighAccuracy: true});
+		},city)
 
 		//事件
 		this.Bmap.addEventListener("dragend", (...ops)=>{
@@ -103,7 +87,7 @@ class App extends baseComponent {
 					<i className="icon-location"></i>
 				</div>
 				<div className="button-sp-area">
-					<Button onClick={this.submit}>保存</Button>
+					<Button onClick={this.submit} disabled={!this.state.address}>保存</Button>
 				</div>
 			</div>
 	    );

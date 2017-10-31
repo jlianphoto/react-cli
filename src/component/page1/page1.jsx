@@ -23,8 +23,7 @@ class App extends baseComponent {
     return (
       <div className="App">
         <Link to="/">page1</Link>
-        <Link to="/page2/www">page2</Link>
-        <Link to="/page3">page3</Link>
+        <Link to="/success">page2</Link>
         <Link to="/apply">apply</Link>
       </div>
     );
