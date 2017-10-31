@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import route from './router'; //路由配置
 import store from './store';
-// import registerServiceWorker from './registerServiceWorker';]
+import registerServiceWorker from './registerServiceWorker';
 
 import 'weui';
 import './style/base.scss'

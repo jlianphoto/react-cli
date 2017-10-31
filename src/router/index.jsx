@@ -29,9 +29,9 @@ const routes = [
 		exact: false,
 		component: (props) => getComponent(props, () => import('../component/paymentCenter') , {title:'收银台'})
 	},
-	{ path: '/aaa',
+	{ path: '/404',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/404') , {title:'test'})
+		component: (props) => getComponent(props, () => import('../component/404') , {title:'这个页面失踪好久了'})
 	}
 ];
 
@@ -55,7 +55,7 @@ const RouteConfig = (
 				    component={route.component}
 			    />
 		    ))}
-		    <Redirect from='' to="/" />
+		    <Redirect from='' to="/404" />
 	    </Switch>
     </BrowserRouter>
 );

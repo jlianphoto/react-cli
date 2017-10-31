@@ -39,11 +39,8 @@ class App extends baseComponent {
 
 		//解析地址
 		let compileAddress = new BMap.Geocoder();
-		console.log(address , city)
 		compileAddress.getPoint(address , point=>{
-			console.log(point)
 			if (point) {
-				console.log(point ,11)
 				this.Bmap.centerAndZoom(point, 16);
 				this.setPoint(point)
 			}else{
