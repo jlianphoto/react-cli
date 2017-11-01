@@ -10,7 +10,7 @@ class App extends baseComponent {
 		const {onClick , className , ...others} = this.props;
 		return(
 			<div className="input-control dropdown" onClick={this.props.onClick}>
-				<input type="text" placeholder="省 / 市 / 区"  {...others}/>
+				<input type="text" readOnly placeholder="省 / 市 / 区"  {...others}/>
 			</div>
 		)
 	}

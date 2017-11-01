@@ -1,0 +1,62 @@
+@import "../../style/util";
+
+.applyList{
+    &.container {
+        width: 100%;
+        background: #f3f3f3;
+    }
+
+    .item p.time {
+        width: 100%;
+        line-height: 40px;
+        text-indent: 18px;
+        color: #a6a6a6;
+        
+    }
+    .i-target {
+        height: 100px;
+        background: #fff;
+
+        &:after{
+            content: '';
+            display: block;
+            height: 1px;
+            background : #ccc;
+            transform: scaleY(.5);            
+        }
+    }
+    .i-target .target {
+        height: 100%;
+        display: flex;
+        padding: 18px 10px;
+    }
+    .i-target .target img{
+        display: block;
+        height: 64px;
+        width: 64px;
+    }
+    .i-target .detail {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items:center ;
+        margin-left: 10px;
+        width: 100%;
+        overflow: hidden;
+
+    }
+    .i-target .detail .txt {
+        display: inline-block;
+        width: 92%;
+    }
+    .i-target .detail .txt h3 {
+        font-weight: bold;
+        color: #333;
+        @include ellipsis();
+    }
+    .i-target .detail .txt p {
+        color: #a6a6a6;
+        @include ellipsis();
+    }
+}
+
