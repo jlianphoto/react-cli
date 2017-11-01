@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import baseComponent from '../common/baseCompent'
 import Map from './map'
-import cnCity from './cnCity'
+
 
 import {Form , Input, Select ,FieldItem} from '../common/Form'
 
@@ -28,6 +28,7 @@ class App extends baseComponent {
 			map_show : false,
 			showWarn:false,
 			topTipMsg:'',
+			addressData:null,
 
 	    	form :{
 	    		hostName:{
@@ -121,7 +122,7 @@ class App extends baseComponent {
 	  }
 
 	componentDidMount() {
-		console.log(this)
+		import('./cnCity').then(data=>this.setState({addressData:data.default}));
 	}
 
 	showCityPicker = e=>{
@@ -267,13 +268,13 @@ class App extends baseComponent {
 	getAddress = rs=>{
 		let {form} = this.state;
 		form.gps.value = rs.point.lat + ","+ rs.point.lng;
+		form.gps.error = false;
 
 		this.setState({
 			map_show : false,
 			form : form
 		})
 
-		console.log(this.state.form)
 	}
 
 
@@ -299,12 +300,15 @@ class App extends baseComponent {
 						<div className="input-group">
 							<FieldItem label="所在省市区" required error={this.state.form.city.error}>
 								<Select onClick={this.showCityPicker} name="cityValue"  placeholder="省 / 市 / 区" value={this.state.form.city.value}></Select>
-								<CityPicker
-									data={cnCity}
-									show={this.state.city_show}
-									onCancel={e=>this.setState({city_show: false})}
-									onChange={text=>{this.setState({city_show: false,form:{...this.state.form,city:{value:text,rule:this.state.form.city.rule,error:false}}})}}
-								></CityPicker>
+								{this.state.addressData && 
+									(<CityPicker
+										data={this.state.addressData}
+										show={this.state.city_show}
+										onCancel={e=>this.setState({city_show: false})}
+										onChange={text=>{this.setState({city_show: false,form:{...this.state.form,city:{value:text,rule:this.state.form.city.rule,error:false}}})}}
+									></CityPicker>)
+								}
+								
 							</FieldItem>
 
 							<FieldItem label="门店地址">
@@ -312,7 +316,7 @@ class App extends baseComponent {
 							</FieldItem>
 
 							<FieldItem label="GPS坐标" required error={this.state.form.gps.error}>
-								<Input name="gps" placeholder="获取坐标" value={this.state.form.gps.value} onChange={this.handleChange} readOnly onClick={this.openMap}></Input>
+								<Input name="gps" placeholder="获取坐标" value={this.state.form.gps.value} readOnly onClick={this.openMap}></Input>
 							</FieldItem>
 
 						</div>

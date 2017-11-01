@@ -6,7 +6,7 @@ import {
 } from 'react-weui';
 
 
-class App extends baseComponent {
+class Map extends baseComponent {
 
 	constructor(props) {
 	    super(props);
@@ -91,4 +91,4 @@ class App extends baseComponent {
 	}
 }
 
-export default App;
+export default Map;
