@@ -1,0 +1,83 @@
+@import "../../style/util";
+
+.upLoadPicture {
+  
+ 	h4{
+ 		line-height: 40px;
+    	text-indent: 18px;
+    	background: #f3f3f3;
+    	color: #a6a6a6;
+ 	}
+
+
+ 	li{
+ 		height: 100px;
+	    display: flex;
+	    justify-content:space-between;
+	    padding: 18px 10px;
+	    position: relative;
+
+	    @include borderBottom();
+
+
+	    img{
+		    height: 64px;
+		    width: 64px;
+		    display: inline-block;
+	    }
+ 	}
+
+
+ 	.message{
+ 		display: inline-block;
+ 		padding: 10px 0 0 10px;
+		width: calc(100% - 64px);
+ 		p:first-child{
+ 			@include ellipsis();
+ 		}
+ 	}
+
+ 	.state{
+ 		span{
+ 			color: #999999;
+ 		}
+ 		.success{
+ 			color: #1DBC43;
+ 		}
+ 		.error{
+ 			color: #f44540;
+ 		}
+ 	}
+
+
+ 	.detail{
+		flex: 1;
+		display: flex;
+ 		width: 40%;
+
+ 	}
+
+ 	.upload-btn{
+ 		width: 64px;
+ 		display: flex;
+ 		align-items:center;
+ 		span{	
+ 			color: #999;
+ 		}
+ 	}
+
+
+ 	.icon-upload{
+ 		display: inline-block;
+ 		width: 30px;
+ 		height: 30px;
+ 		background: url(./images/icon-camera.png) no-repeat;
+ 		background-size: contain;
+ 		margin-left: 4px
+ 	}
+
+ 	.btn_wrap{
+ 		padding:0 10px;
+ 		margin-top: 10px;
+ 	}
+}

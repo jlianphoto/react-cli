@@ -25,6 +25,10 @@ const routes = [
 		exact: false,
 		component: (props) => getComponent(props, () => import('../component/apply') , {title:'申请开店'})
 	},
+	{ path: '/uploadPicture',
+		exact: false,
+		component: (props) => getComponent(props, () => import('../component/uploadPicture') , {title:'申请开店'})
+	},
 	{ path: '/applyList',
 		exact: false,
 		component: (props) => getComponent(props, () => import('../component/applyList') , {title:'开店申请记录'})
