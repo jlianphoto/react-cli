@@ -37,6 +37,10 @@ const routes = [
 		exact: false,
 		component: (props) => getComponent(props, () => import('../component/paymentCenter') , {title:'收银台'})
 	},
+	{ path: '/pay',
+		exact: false,
+		component: (props) => getComponent(props, () => import('../component/pay') , {title:'向商家付款'})
+	},
 	{ path: '/404',
 		exact: false,
 		component: (props) => getComponent(props, () => import('../component/404') , {title:'这个页面失踪好久了'})
