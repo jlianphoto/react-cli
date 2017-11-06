@@ -93,6 +93,45 @@ body , html{
 		}
 
 	}
+
+	.company{
+		background: #fff;
+		border-top:1px solid #ccc;
+		border-bottom:1px solid #ccc;
+		height: 42px;
+		display: flex;
+		align-items: center;
+		padding: 0 10px;
+		margin-top: 4px
+	}
+
+	.keybord{
+		width: 100%;
+		background: #fff;
+		border-collapse: collapse;
+		position: fixed;
+		bottom: 0;
+
+		.submit{
+			font-size: 22px;
+			background: #a2dca2;
+			padding: 0 20px;
+			color: #fff;
+		}
+
+		td{
+			width: 25%;
+			text-align: center;
+			height: 70px;
+			font-size:30px;
+			border-top:1px solid #ccc;
+			border-left: 1px solid #ccc;
+			
+			&:first-child{
+				border-left:0;
+			}
+		}
+	}
 }
 
  @-webkit-keyframes twinkling{
