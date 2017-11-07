@@ -1,18 +1,11 @@
 import React from 'react';
 import baseComponent from '../common/baseCompent'
-import { Link } from 'react-router-dom';
 
 import {Button} from 'react-weui';
 
 import './style.scss'
 
 class upLoadPicture extends baseComponent {
-
-	constructor(props) {
-	    super(props);
-		
-	  }
-
 
 	 render() {
 	    return (
