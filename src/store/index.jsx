@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-// import reducer from '../Reducer/Index';
+import {defaultStore} from './defaultStore/reducer.js';
+
 import thunk from 'redux-thunk'; //处理异步
 
-//创建一个 Redux store 来以存放应用中所有的 state
 var store = createStore(
-    // combineReducers(reducer),
+    combineReducers({defaultStore}),
     applyMiddleware(thunk)
 );
 

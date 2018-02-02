@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 // import createBrowserHistory from 'history/createBrowserHistory'
 
 
-import IndexList from '../component/page1/page1'; //首页组件
+import IndexList from '../pages/page1/page1'; //首页组件
 import getComponent from './getComponent';
 
 
@@ -19,31 +19,31 @@ const routes = [
 	},
 	{ path: '/success',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/success') , {title:'申请成功'})
+		component: (props) => getComponent(props, () => import('../pages/success') , {title:'申请成功'})
 	},
 	{ path: '/apply',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/apply') , {title:'申请开店'})
+		component: (props) => getComponent(props, () => import('../pages/apply') , {title:'申请开店'})
 	},
 	{ path: '/uploadPicture',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/uploadPicture') , {title:'申请开店'})
+		component: (props) => getComponent(props, () => import('../pages/uploadPicture') , {title:'申请开店'})
 	},
 	{ path: '/applyList',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/applyList') , {title:'开店申请记录'})
+		component: (props) => getComponent(props, () => import('../pages/applyList') , {title:'开店申请记录'})
 	},
 	{ path: '/paymentCenter',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/paymentCenter') , {title:'收银台'})
+		component: (props) => getComponent(props, () => import('../pages/paymentCenter') , {title:'收银台'})
 	},
 	{ path: '/pay',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/pay') , {title:'向商家付款'})
+		component: (props) => getComponent(props, () => import('../pages/pay') , {title:'向商家付款'})
 	},
 	{ path: '/404',
 		exact: false,
-		component: (props) => getComponent(props, () => import('../component/404') , {title:'这个页面失踪好久了'})
+		component: (props) => getComponent(props, () => import('../pages/404') , {title:'这个页面失踪好久了'})
 	}
 ];
 
